@@ -1,0 +1,73 @@
+{
+  "trace_id": "bb1d27a3912c487c9f23bfcdb0f9fd22",
+  "span_id": "fa72af83dd574317",
+  "parent_span_id": null,
+  "name": "fake_ask",
+  "kind": "chain",
+  "status": "ok",
+  "input": {
+    "query": "I need something warm"
+  },
+  "output": {
+    "query": "I need something warm",
+    "price": {
+      "item": "beanie",
+      "price": 24.0
+    },
+    "stock": {
+      "item": "beanie",
+      "available": true,
+      "quantity": 12
+    }
+  },
+  "attributes": {},
+  "error": null,
+  "start_time": "2026-11-11T05:57:46.583545+00:00",
+  "end_time": "2026-11-11T05:57:46.583649+00:00",
+  "duration_ms": 0.09,
+  "children": [
+    {
+      "trace_id": "bb1d27a3912c487c9f23bfcdb0f9fd22",
+      "span_id": "5c4fe521ac224847",
+      "parent_span_id": "fa72af83dd574317",
+      "name": "lookup_price",
+      "kind": "tool",
+      "status": "ok",
+      "input": {
+        "item": "beanie"
+      },
+      "output": {
+        "item": "beanie",
+        "price": 24.0
+      },
+      "attributes": {},
+      "error": null,
+      "start_time": "2026-11-11T05:57:46.583592+00:00",
+      "end_time": "2026-11-11T05:57:46.583605+00:00",
+      "duration_ms": 0.008,
+      "children": []
+    },
+    {
+      "trace_id": "bb1d27a3912c487c9f23bfcdb0f9fd22",
+      "span_id": "f6157f842dca4a71",
+      "parent_span_id": "fa72af83dd574317",
+      "name": "check_stock",
+      "kind": "tool",
+      "status": "ok",
+      "input": {
+        "item": "beanie"
+      },
+      "output": {
+        "item": "beanie",
+        "available": true,
+        "quantity": 12
+      },
+      "attributes": {},
+      "error": null,
+      "start_time": "2026-11-11T05:57:46.583631+00:00",
+      "end_time": "2026-11-11T05:57:46.583642+00:00",
+      "duration_ms": 0.006,
+      "children": []
+    }
+  ]
+}

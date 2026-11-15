@@ -1,0 +1,2 @@
+<!-- Optional: let OpenCode draft a starting point -->
+Read synthetic_queries_raw.md and draft a starting shortlist into synthetic_queries.md: drop obvious duplicates, drop anything clearly out of domain for a clothing retailer, and keep 7 queries that cover a range of the REGISTER/INTENT/SCOPE axes. Use the same "## heading" + "- bullet" format as queries.md, under a "## Curated synthetic queries" heading. Be concise — just write the file, then stop. I'll review and edit it myself before continuing.

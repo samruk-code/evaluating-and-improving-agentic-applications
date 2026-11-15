@@ -1,0 +1,14 @@
+gradio
+# anthropic 1.8.0 (2026-09-22) removed anthropic._utils._transform.
+# openinference still imports it inside register(auto_instrument=True),
+# which crashes app.py before Gradio binds :7860. Stay below that release.
+# Instrumentor 2.x is required with anthropic 1.x; 1.x of the instrumentor
+# crashes on a different missing attribute. See L1/ungraded/lab1/requirements.txt.
+anthropic>=1.0,<1.8
+claude-agent-sdk
+arize-phoenix==19.17.0
+arize-phoenix-otel
+arize-phoenix-client
+openinference-instrumentation-claude-agent-sdk
+openinference-instrumentation-anthropic>=2.0,<3
+pandas

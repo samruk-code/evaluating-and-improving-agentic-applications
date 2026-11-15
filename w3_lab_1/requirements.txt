@@ -1,0 +1,15 @@
+# Lab runtime for the local image and the downloadable zip.
+# Keep these packages (and the Phoenix pin) in sync with ../requirements.txt.
+gradio
+# anthropic 1.8.0 removed anthropic._utils._transform, which openinference
+# still imports at register() time and crashes the Gradio app.
+anthropic>=1.0,<1.8
+claude-agent-sdk
+arize-phoenix==19.17.0
+arize-phoenix-otel
+arize-phoenix-client
+arize-phoenix-evals
+openinference-instrumentation-claude-agent-sdk
+openinference-instrumentation-anthropic>=2.0,<3
+pandas
+scikit-learn

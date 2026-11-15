@@ -1,0 +1,22 @@
+{
+  "TEE-001": {"quantity": 42},
+  "SHO-001": {"quantity": 17},
+  "SHO-002": {"quantity": 8},
+  "SHO-003": {"quantity": 0},
+  "OUT-001": {"quantity": 12},
+  "OUT-002": {"quantity": 6},
+  "OUT-003": {"quantity": 21},
+  "TOP-002": {"quantity": 15},
+  "TOP-003": {"quantity": 30},
+  "TOP-004": {"quantity": 9},
+  "TOP-005": {"quantity": 14},
+  "BOT-001": {"quantity": 25},
+  "BOT-002": {"quantity": 19},
+  "BOT-003": {"quantity": 11},
+  "ACC-001": {"quantity": 33},
+  "ACC-002": {"quantity": 40},
+  "ACC-003": {"quantity": 7},
+  "ACC-004": {"quantity": 28},
+  "ACC-005": {"quantity": 50},
+  "ACC-006": {"quantity": 35}
+}

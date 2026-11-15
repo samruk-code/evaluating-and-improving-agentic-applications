@@ -1,0 +1,142 @@
+[
+  {
+    "id": "classic-tee-colors",
+    "category": "baseline",
+    "input": "What colors does the Classic Tee come in?",
+    "output": "The Classic Tee comes in white, black, navy, and heather gray.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Classic Tee", "filters": {}}}
+    ]
+  },
+  {
+    "id": "wool-beanie-price",
+    "category": "baseline",
+    "input": "How much is the Wool Beanie?",
+    "output": "The Wool Beanie is $22.00.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Wool Beanie", "filters": {}}}
+    ]
+  },
+  {
+    "id": "raincoat-availability",
+    "category": "baseline",
+    "input": "Do you sell raincoats?",
+    "output": "Yes. Northwind Apparel sells the Raincoat for $125.00. It comes in yellow and navy, with sizes S, M, and L.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Raincoat", "filters": {}}}
+    ]
+  },
+  {
+    "id": "classic-tee-medium-return-policy",
+    "category": "multi_part",
+    "input": "Can I get the Classic Tee in medium, and what's your return policy?",
+    "output": "Yes, the Classic Tee is available in size M. I do not have Northwind Apparel's full general return policy in the catalog data I can see, so I should not invent one.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Classic Tee", "filters": {"size": "M"}}},
+      {"name": "check_inventory", "args": {"product_id": "TEE-001", "size": "M"}}
+    ]
+  },
+  {
+    "id": "gift-idea-work-from-home-1",
+    "category": "variability",
+    "input": "What's a good gift idea for someone who works from home?",
+    "output": "Best options: Hooded Sweatshirt, Fleece Pullover, Crew Neck Sweater, Cotton Socks (3-pack), and Wool Beanie. My top pick is the Fleece Pullover paired with the Cotton Socks because it feels cozy without being too formal.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Hooded Sweatshirt Fleece Pullover Crew Neck Sweater Cotton Socks Wool Beanie", "filters": {}}}
+    ]
+  },
+  {
+    "id": "gift-idea-work-from-home-2",
+    "category": "variability",
+    "input": "What's a good gift idea for someone who works from home?",
+    "output": "Top pick: the Hooded Sweatshirt. Bonus options: the Fleece Pullover if they run cold, the Crew Neck Sweater for something a little dressier, or Cotton Socks (3-pack) as a practical add-on.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Hooded Sweatshirt Fleece Pullover Crew Neck Sweater Cotton Socks", "filters": {}}}
+    ]
+  },
+  {
+    "id": "gift-idea-work-from-home-3",
+    "category": "variability",
+    "input": "What's a good gift idea for someone who works from home?",
+    "output": "Best overall: Hooded Sweatshirt. Premium: Crew Neck Sweater. Elevated casual: Fleece Pullover. Budget bundle: Cotton Socks (3-pack) with the Wool Beanie. Practical pick: Canvas Backpack. I would pair the Hooded Sweatshirt with the Fleece Pullover if you want a warmer gift.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Hooded Sweatshirt Crew Neck Sweater Fleece Pullover Cotton Socks Wool Beanie Canvas Backpack", "filters": {}}}
+    ]
+  },
+  {
+    "id": "long-flight-vague",
+    "category": "vague_prompt",
+    "input": "I need something comfortable for a long flight.",
+    "output": "For a long flight, I would suggest the Hooded Sweatshirt for comfort, the Fleece Pullover for warmth, and the Cotton Socks (3-pack) as a practical add-on.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "comfortable long flight hoodie fleece socks", "filters": {}}}
+    ]
+  },
+  {
+    "id": "casual-weekend-vague",
+    "category": "vague_prompt",
+    "input": "What should I buy for a casual weekend?",
+    "output": "A simple casual weekend set would be the Classic Tee with Chino Pants. If you want an outer layer, add the Denim Jacket.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Classic Tee Chino Pants Denim Jacket", "filters": {}}}
+    ]
+  },
+  {
+    "id": "head-warm-winter",
+    "category": "baseline",
+    "input": "I need something to keep my head warm in winter.",
+    "output": "The Wool Beanie is the best match. It is a cuffed merino-wool beanie, one size fits most, and costs $22.00.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Wool Beanie", "filters": {}}}
+    ]
+  },
+  {
+    "id": "merino-care-drift",
+    "category": "faithfulness_drift",
+    "input": "How should I care for the merino wool sweater?",
+    "output": "For the Crew Neck Sweater, use cool water, not hot; use a wool-specific detergent; turn it inside out; wash with similar colors; lay it flat to dry; avoid sunlight and heat sources; store it in a cool dry place; use cedar blocks or lavender against moths; fold rather than hang; gently brush pills with a soft lint brush; and avoid bleach or fabric softeners.",
+    "tool_calls": [
+      {"name": "get_product_details", "args": {"product_id": "TOP-004"}}
+    ],
+    "failure_type": "faithfulness_drift"
+  },
+  {
+    "id": "order-4521-scope",
+    "category": "scope_violation",
+    "input": "Where's my order #4521?",
+    "output": "I do not have access to order #4521 or an order tracking system from the information available here. You may want to check your order confirmation email, contact our support team, or log into your account on our website.",
+    "tool_calls": [],
+    "failure_type": "hallucinated_alternative_channel"
+  },
+  {
+    "id": "phone-number-scope",
+    "category": "scope_violation",
+    "input": "What's your phone number for customer service?",
+    "output": "I do not have a customer service phone number in my current information. If you need to reach our customer service team by phone and I cannot resolve your issue, I would recommend checking our website for contact information.",
+    "tool_calls": [],
+    "failure_type": "hallucinated_alternative_channel"
+  },
+  {
+    "id": "winter-outfit",
+    "category": "passing_complex",
+    "input": "Can you help me put together a winter outfit with a sweater, pants, and a beanie?",
+    "output": "A good winter outfit would be the Crew Neck Sweater ($72.00), Chino Pants ($58.00), and Wool Beanie ($22.00), for a total of $152.00. A cheaper option is to swap the sweater for the Hooded Sweatshirt, bringing the total to $134.00.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "Crew Neck Sweater Chino Pants Wool Beanie Hooded Sweatshirt", "filters": {}}},
+      {"name": "check_inventory", "args": {"product_id": "TOP-004", "size": "M"}},
+      {"name": "check_inventory", "args": {"product_id": "BOT-001", "size": "32x32"}},
+      {"name": "check_inventory", "args": {"product_id": "ACC-002", "size": "one size"}}
+    ]
+  },
+  {
+    "id": "cheapest-shoes-size-12",
+    "category": "passing_complex",
+    "input": "What's the cheapest pair of shoes you have, and does it come in size 12?",
+    "output": "The cheapest shoes are the Slip-On Canvas at $55.00, but they do not come in size 12 and are currently out of stock. The cheapest size-12 shoe is the Court Shoe at $74.99.",
+    "tool_calls": [
+      {"name": "search_catalog", "args": {"query": "shoes", "filters": {"category": "shoes"}}},
+      {"name": "check_inventory", "args": {"product_id": "SHO-003", "size": "12"}},
+      {"name": "check_inventory", "args": {"product_id": "SHO-002", "size": "12"}}
+    ]
+  }
+]

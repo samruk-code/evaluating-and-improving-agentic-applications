@@ -1,0 +1,21 @@
+{
+  "trace_id": "8cec3ff8ca974bdf97e1c69da9d125fb",
+  "span_id": "83ebe03eab354c10",
+  "parent_span_id": null,
+  "name": "unavailable_inventory",
+  "kind": "tool",
+  "status": "error",
+  "input": {
+    "product_id": "TEE-001"
+  },
+  "output": null,
+  "attributes": {},
+  "error": {
+    "type": "RuntimeError",
+    "message": "Inventory service unavailable for TEE-001"
+  },
+  "start_time": "2026-11-11T05:57:52.798395+00:00",
+  "end_time": "2026-11-11T05:57:52.798422+00:00",
+  "duration_ms": 0.015,
+  "children": []
+}

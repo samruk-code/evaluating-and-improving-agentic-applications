@@ -1,0 +1,10 @@
+# Runtime files OpenCode should not watch. Phoenix writes phoenix-data/
+# while OpenCode boots; a live watcher on that SQLite tree can hang the TUI
+# at "booting location services".
+phoenix-data/
+.lab-logs/
+dataframe_exports/
+*.log
+*.pid
+__pycache__/
+.phoenix/

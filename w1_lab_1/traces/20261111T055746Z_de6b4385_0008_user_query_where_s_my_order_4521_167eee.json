@@ -1,0 +1,751 @@
+{
+  "trace_id": "cae495c81e3c476da16b2c81094eb43b",
+  "span_id": "167eee06669548f7",
+  "parent_span_id": null,
+  "name": "ask_agent",
+  "kind": "chain",
+  "status": "ok",
+  "input": {
+    "user_query": "Where's my order #4521?"
+  },
+  "output": {
+    "final_answer": "I couldn't find an order with the number 4521. Could you double-check the order number? It may have a different format, such as a prefix or extra digits, or it may be in your confirmation email.\n\nIf you share the email address used for the order, I can also try looking it up that way.",
+    "success": true,
+    "failure_type": null,
+    "tool_names": [
+      "get_order_tracking"
+    ]
+  },
+  "attributes": {},
+  "error": null,
+  "start_time": "2026-11-11T05:59:19.307142+00:00",
+  "end_time": "2026-11-11T05:59:21.950124+00:00",
+  "duration_ms": 2642.972,
+  "children": [
+    {
+      "trace_id": "cae495c81e3c476da16b2c81094eb43b",
+      "span_id": "509b9be6eb964b77",
+      "parent_span_id": "167eee06669548f7",
+      "name": "anthropic.messages.create",
+      "kind": "llm",
+      "status": "ok",
+      "input": {
+        "model": "claude-haiku-5-5",
+        "max_tokens": 800,
+        "system": "You are Northwind Apparel's shopping assistant.\n\nYou can help customers find apparel, check inventory, create carts,\nreserve items, apply coupons, look up order tracking, and process exchanges.\n\nUse tools when helpful. Give concise answers.",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Where's my order #4521?"
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "signature": "CAQSiAYKEAgTGAI4AUIIdGhpbmtpbmcSDEEXk9nzd1iSmW2G7xoMPE11e6JwICSwn+zkIjC72HuVy+soWvnnURzqTjSACQ/9ZTsgL2GG14ZQnn/jV8LCPRenSE+0KGXZEKr8LpwqpQVhUodz3mJ8YH9IBlFfcEErlFi9aJAIb2heTZ0N+LYvMmkFpOcHPnhpzUhbf2dWCWzf+EdsQwbg7Gpi1+g/wxx4qgjuj6mmYFcurRBL8ZblurrBSzhKS4Iko5fY8VrJANZpdUSaoCipd2vxa6d27PyGzgaKk5m0S36dDLNq0CoNWoSnaSbR2Oy5T4SdwiTIm5tJZQMbsWbu/qG2caVRCUE0pq7gKwIXiVQ4c03CjdIlrrZKCPQMjU6bG8xBjtTSaLDvMDj0inHqylV1SHrrLq/HlBPAvPJB9V1d+wwT634XbvUXMX/82my8CsIqKxQUnt3fmoTOokOksIoykt5dx3JMaNa7SnQ+E5CF1ZI1Deg5izZp+T6of0oQGNxXjtfUqcnHPi1H4l86S5+wOJWgkWyrIfC6IkcpJGL9tMnUZm6a3x7RU58M8H1EHL9GrmxDT9JBjXokCvf7IOJAAq9X6K/ZlJ/5BlWT24Hcre5jEX1+JXURvtvnLkCMvOUIxDuBzyFFKwZYNEkxWj19bAlaTc5VV3iqoQd4zekEOFsHrcrTIp4Scxbbk3S830DuTGO5s7YFR0Xh8dRVY8WoUIakYIYRmg09eXAvRhMzKADGjp/L+9E1rnwT02ywTasSvuvOwVDXvdlKl6b9PqKLLkhFgeb1aSSzvMkd2ARVD4j1BhDQ/D77u/SeVkV5njff5pscZpeCGgttvEHB0Rfs9HOrGv1b+kLOcn1oQ6EUCjLYjOGdIQecfKB9n0oDTJRE2pkl6Xwa10/lRBmfZIxEQ8O/atPV07am1NKW08VxUbmWm6R+VQenaYFSS6AT9FDOcqPYwyMKInRIovknBDijXIkZN3W6JGt7VjXp+rWDM/zAfH+ngfri1vah3zDViYk3mpnm489IMvBOPRgB",
+                "thinking": "",
+                "type": "thinking"
+              },
+              {
+                "id": "toolu_014hvgxwnEgDjGZiSs6svkmj",
+                "caller": {
+                  "type": "direct"
+                },
+                "input": {
+                  "order_id": "4521"
+                },
+                "name": "get_order_tracking",
+                "type": "tool_use",
+                "toolset_name": null
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "toolu_014hvgxwnEgDjGZiSs6svkmj",
+                "content": "{\"order_id\":\"4521\",\"reason\":\"order_not_found\",\"success\":false}"
+              }
+            ]
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "signature": "CAQSjwYKEAgTGAI4AUIIdGhpbmtpbmcSDLNRtKW4j0tqNH0F5BoMaLbAyll3DU3F4AD4IjChUFRHGeTaaOAuPHSuryTmT8vdqW0eWfQz0NKx/kANN14Yk2J7ei4nFPhu9WY/+SIqrAW/SUmVZ/OrnDMNGbA1p7RyOlyJ4GrkYMv8h6PiFuPvkpUjvANlGyYy9BfV4D38MFd3EqhBiBSyzCFyfLXXhbssniV8vTnNW0mHM/iVdO//lAxhGWcEY+iQYMqCqMzgmbQEiHWkJqIdoja6S3yyVtAuP9ZmR+9cCXJ9SRpT+o6umPdB5wIL+Mo9mjW4J3nDt6tnxmgy0uQoTrmswwamdbyYfrJcVwPNYywhNZG1xFMA97GWN5V72TAi2Rd+dDfLWUC0bZDrIGtc/O82zZa7iFzpjC2LEM46Eq+jzCdioBlbdykUOc0IqFIjpDtNKpYw5TBmycyGqdG7XCYyttQnJ/5TalqYUHDgBg63LFOlUjBLhxT5Zj/W0essMj2kMAXd6DriazbFqg6S7rgQaefCyCJjy6UofjRjE7fZ5wn23HTozXSOjOvAEC5sKjDwxvCcz7PXpWI+KaMF7O9jSTWfPk1YPlVrFyReFxGWdSqbKiufR83FOisY/B15OnMxLuh75B64Os5T5NjQ3eGmUVwHNOMO+wzTckld44udZdXJ6APijJSPjvZBnE5z18dC1mLzDqxkgBI405DfcT6bUBlIgnaByya4SgX1pp3WfDLS1/CLx0deoT1T8rz0COMpjp0PZigQ6MVLTn1fuPX+bc4xB+beZhQzrjYeTPcVX5m6LxwB+PAlYzE8jMdO7w2xRx/TNL5qJme6rXbluCOq05+IQyKES88ndlV56sjyISl5ODkgEKJ17mKqGIs2NpAqFOyWZZ1qoqhuoZPgJEzO2LiByuWvBoi9+5AETkHad3h7zWBOOtIkW1UXyQNkGnYyrprZ+bGm/cGxfrHJum9IyvdoLk3ZUg90y+K6sxPIewLXvTWBVMpoSFUuGToh2Eb2hEH34sxaHKgAZBnJfW6zjM4YAQ==",
+                "thinking": "",
+                "type": "thinking"
+              },
+              {
+                "citations": null,
+                "text": "I couldn't find an order with the number 4521. Could you double-check the order number? It may have a different format, such as a prefix or extra digits, or it may be in your confirmation email.\n\nIf you share the email address used for the order, I can also try looking it up that way.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "tools": [
+          {
+            "name": "search_catalog",
+            "description": "Search apparel catalog by text query and optional filters.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                },
+                "filters": {
+                  "type": "object",
+                  "properties": {
+                    "category": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "fabric": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "string"
+                    },
+                    "max_price": {
+                      "type": "number"
+                    },
+                    "available": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          },
+          {
+            "name": "get_product_details",
+            "description": "Get details for one product ID.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "product_id"
+              ]
+            }
+          },
+          {
+            "name": "check_inventory",
+            "description": "Check store inventory for a product and size.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "store_id": {
+                  "type": "string",
+                  "default": "STORE-001"
+                }
+              },
+              "required": [
+                "product_id",
+                "size"
+              ]
+            }
+          },
+          {
+            "name": "reserve_item",
+            "description": "Reserve one in-stock item for customer pickup.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "type": "string"
+                },
+                "product_id": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "store_id": {
+                  "type": "string",
+                  "default": "STORE-001"
+                }
+              },
+              "required": [
+                "customer_id",
+                "product_id",
+                "size"
+              ]
+            }
+          },
+          {
+            "name": "create_cart",
+            "description": "Create a cart for a customer with one or more items.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "type": "string"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "product_id": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "string"
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "default": 1
+                      }
+                    },
+                    "required": [
+                      "product_id",
+                      "size"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "customer_id",
+                "items"
+              ]
+            }
+          },
+          {
+            "name": "apply_coupon",
+            "description": "Apply a coupon code to an existing cart.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "cart_id": {
+                  "type": "string"
+                },
+                "coupon_code": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "cart_id",
+                "coupon_code"
+              ]
+            }
+          },
+          {
+            "name": "lookup_order",
+            "description": "Look up a customer order by order ID and email.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "email": "[REDACTED]"
+              },
+              "required": [
+                "order_id",
+                "email"
+              ]
+            }
+          },
+          {
+            "name": "get_order_tracking",
+            "description": "Get shipment status and tracking events for an order.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "order_id"
+              ]
+            }
+          },
+          {
+            "name": "check_return_policy",
+            "description": "Check whether an order item is returnable or exchangeable.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "product_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "order_id",
+                "product_id"
+              ]
+            }
+          },
+          {
+            "name": "create_exchange_request",
+            "description": "Create an exchange request for an eligible order item.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "product_id": {
+                  "type": "string"
+                },
+                "new_size": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "order_id",
+                "product_id",
+                "new_size"
+              ]
+            }
+          }
+        ]
+      },
+      "output": {
+        "id": "msg_011CgvdSvJCAXkfS3AGpgWkQ",
+        "container": null,
+        "content": [
+          {
+            "signature": "CAQSiAYKEAgTGAI4AUIIdGhpbmtpbmcSDEEXk9nzd1iSmW2G7xoMPE11e6JwICSwn+zkIjC72HuVy+soWvnnURzqTjSACQ/9ZTsgL2GG14ZQnn/jV8LCPRenSE+0KGXZEKr8LpwqpQVhUodz3mJ8YH9IBlFfcEErlFi9aJAIb2heTZ0N+LYvMmkFpOcHPnhpzUhbf2dWCWzf+EdsQwbg7Gpi1+g/wxx4qgjuj6mmYFcurRBL8ZblurrBSzhKS4Iko5fY8VrJANZpdUSaoCipd2vxa6d27PyGzgaKk5m0S36dDLNq0CoNWoSnaSbR2Oy5T4SdwiTIm5tJZQMbsWbu/qG2caVRCUE0pq7gKwIXiVQ4c03CjdIlrrZKCPQMjU6bG8xBjtTSaLDvMDj0inHqylV1SHrrLq/HlBPAvPJB9V1d+wwT634XbvUXMX/82my8CsIqKxQUnt3fmoTOokOksIoykt5dx3JMaNa7SnQ+E5CF1ZI1Deg5izZp+T6of0oQGNxXjtfUqcnHPi1H4l86S5+wOJWgkWyrIfC6IkcpJGL9tMnUZm6a3x7RU58M8H1EHL9GrmxDT9JBjXokCvf7IOJAAq9X6K/ZlJ/5BlWT24Hcre5jEX1+JXURvtvnLkCMvOUIxDuBzyFFKwZYNEkxWj19bAlaTc5VV3iqoQd4zekEOFsHrcrTIp4Scxbbk3S830DuTGO5s7YFR0Xh8dRVY8WoUIakYIYRmg09eXAvRhMzKADGjp/L+9E1rnwT02ywTasSvuvOwVDXvdlKl6b9PqKLLkhFgeb1aSSzvMkd2ARVD4j1BhDQ/D77u/SeVkV5njff5pscZpeCGgttvEHB0Rfs9HOrGv1b+kLOcn1oQ6EUCjLYjOGdIQecfKB9n0oDTJRE2pkl6Xwa10/lRBmfZIxEQ8O/atPV07am1NKW08VxUbmWm6R+VQenaYFSS6AT9FDOcqPYwyMKInRIovknBDijXIkZN3W6JGt7VjXp+rWDM/zAfH+ngfri1vah3zDViYk3mpnm489IMvBOPRgB",
+            "thinking": "",
+            "type": "thinking"
+          },
+          {
+            "id": "toolu_014hvgxwnEgDjGZiSs6svkmj",
+            "caller": {
+              "type": "direct"
+            },
+            "input": {
+              "order_id": "4521"
+            },
+            "name": "get_order_tracking",
+            "type": "tool_use",
+            "toolset_name": null
+          }
+        ],
+        "model": "claude-haiku-5-5",
+        "role": "assistant",
+        "stop_details": null,
+        "stop_reason": "tool_use",
+        "stop_sequence": null,
+        "type": "message",
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 1591,
+          "output_tokens": 119,
+          "output_tokens_details": {
+            "thinking_tokens": 64
+          },
+          "server_tool_use": null,
+          "service_tier": "standard",
+          "speed": "standard"
+        },
+        "diagnostics": null
+      },
+      "attributes": {},
+      "error": null,
+      "start_time": "2026-11-11T05:59:19.307206+00:00",
+      "end_time": "2026-11-11T05:59:20.567955+00:00",
+      "duration_ms": 1260.758,
+      "children": []
+    },
+    {
+      "trace_id": "cae495c81e3c476da16b2c81094eb43b",
+      "span_id": "978bf711ef464a81",
+      "parent_span_id": "167eee06669548f7",
+      "name": "get_order_tracking",
+      "kind": "tool",
+      "status": "ok",
+      "input": {
+        "order_id": "4521"
+      },
+      "output": {
+        "success": false,
+        "reason": "order_not_found",
+        "order_id": "4521"
+      },
+      "attributes": {},
+      "error": null,
+      "start_time": "2026-11-11T05:59:20.568084+00:00",
+      "end_time": "2026-11-11T05:59:20.568241+00:00",
+      "duration_ms": 0.138,
+      "children": []
+    },
+    {
+      "trace_id": "cae495c81e3c476da16b2c81094eb43b",
+      "span_id": "9ca0852deeff46b6",
+      "parent_span_id": "167eee06669548f7",
+      "name": "anthropic.messages.create",
+      "kind": "llm",
+      "status": "ok",
+      "input": {
+        "model": "claude-haiku-5-5",
+        "max_tokens": 800,
+        "system": "You are Northwind Apparel's shopping assistant.\n\nYou can help customers find apparel, check inventory, create carts,\nreserve items, apply coupons, look up order tracking, and process exchanges.\n\nUse tools when helpful. Give concise answers.",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Where's my order #4521?"
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "signature": "CAQSiAYKEAgTGAI4AUIIdGhpbmtpbmcSDEEXk9nzd1iSmW2G7xoMPE11e6JwICSwn+zkIjC72HuVy+soWvnnURzqTjSACQ/9ZTsgL2GG14ZQnn/jV8LCPRenSE+0KGXZEKr8LpwqpQVhUodz3mJ8YH9IBlFfcEErlFi9aJAIb2heTZ0N+LYvMmkFpOcHPnhpzUhbf2dWCWzf+EdsQwbg7Gpi1+g/wxx4qgjuj6mmYFcurRBL8ZblurrBSzhKS4Iko5fY8VrJANZpdUSaoCipd2vxa6d27PyGzgaKk5m0S36dDLNq0CoNWoSnaSbR2Oy5T4SdwiTIm5tJZQMbsWbu/qG2caVRCUE0pq7gKwIXiVQ4c03CjdIlrrZKCPQMjU6bG8xBjtTSaLDvMDj0inHqylV1SHrrLq/HlBPAvPJB9V1d+wwT634XbvUXMX/82my8CsIqKxQUnt3fmoTOokOksIoykt5dx3JMaNa7SnQ+E5CF1ZI1Deg5izZp+T6of0oQGNxXjtfUqcnHPi1H4l86S5+wOJWgkWyrIfC6IkcpJGL9tMnUZm6a3x7RU58M8H1EHL9GrmxDT9JBjXokCvf7IOJAAq9X6K/ZlJ/5BlWT24Hcre5jEX1+JXURvtvnLkCMvOUIxDuBzyFFKwZYNEkxWj19bAlaTc5VV3iqoQd4zekEOFsHrcrTIp4Scxbbk3S830DuTGO5s7YFR0Xh8dRVY8WoUIakYIYRmg09eXAvRhMzKADGjp/L+9E1rnwT02ywTasSvuvOwVDXvdlKl6b9PqKLLkhFgeb1aSSzvMkd2ARVD4j1BhDQ/D77u/SeVkV5njff5pscZpeCGgttvEHB0Rfs9HOrGv1b+kLOcn1oQ6EUCjLYjOGdIQecfKB9n0oDTJRE2pkl6Xwa10/lRBmfZIxEQ8O/atPV07am1NKW08VxUbmWm6R+VQenaYFSS6AT9FDOcqPYwyMKInRIovknBDijXIkZN3W6JGt7VjXp+rWDM/zAfH+ngfri1vah3zDViYk3mpnm489IMvBOPRgB",
+                "thinking": "",
+                "type": "thinking"
+              },
+              {
+                "id": "toolu_014hvgxwnEgDjGZiSs6svkmj",
+                "caller": {
+                  "type": "direct"
+                },
+                "input": {
+                  "order_id": "4521"
+                },
+                "name": "get_order_tracking",
+                "type": "tool_use",
+                "toolset_name": null
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "toolu_014hvgxwnEgDjGZiSs6svkmj",
+                "content": "{\"order_id\":\"4521\",\"reason\":\"order_not_found\",\"success\":false}"
+              }
+            ]
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "signature": "CAQSjwYKEAgTGAI4AUIIdGhpbmtpbmcSDLNRtKW4j0tqNH0F5BoMaLbAyll3DU3F4AD4IjChUFRHGeTaaOAuPHSuryTmT8vdqW0eWfQz0NKx/kANN14Yk2J7ei4nFPhu9WY/+SIqrAW/SUmVZ/OrnDMNGbA1p7RyOlyJ4GrkYMv8h6PiFuPvkpUjvANlGyYy9BfV4D38MFd3EqhBiBSyzCFyfLXXhbssniV8vTnNW0mHM/iVdO//lAxhGWcEY+iQYMqCqMzgmbQEiHWkJqIdoja6S3yyVtAuP9ZmR+9cCXJ9SRpT+o6umPdB5wIL+Mo9mjW4J3nDt6tnxmgy0uQoTrmswwamdbyYfrJcVwPNYywhNZG1xFMA97GWN5V72TAi2Rd+dDfLWUC0bZDrIGtc/O82zZa7iFzpjC2LEM46Eq+jzCdioBlbdykUOc0IqFIjpDtNKpYw5TBmycyGqdG7XCYyttQnJ/5TalqYUHDgBg63LFOlUjBLhxT5Zj/W0essMj2kMAXd6DriazbFqg6S7rgQaefCyCJjy6UofjRjE7fZ5wn23HTozXSOjOvAEC5sKjDwxvCcz7PXpWI+KaMF7O9jSTWfPk1YPlVrFyReFxGWdSqbKiufR83FOisY/B15OnMxLuh75B64Os5T5NjQ3eGmUVwHNOMO+wzTckld44udZdXJ6APijJSPjvZBnE5z18dC1mLzDqxkgBI405DfcT6bUBlIgnaByya4SgX1pp3WfDLS1/CLx0deoT1T8rz0COMpjp0PZigQ6MVLTn1fuPX+bc4xB+beZhQzrjYeTPcVX5m6LxwB+PAlYzE8jMdO7w2xRx/TNL5qJme6rXbluCOq05+IQyKES88ndlV56sjyISl5ODkgEKJ17mKqGIs2NpAqFOyWZZ1qoqhuoZPgJEzO2LiByuWvBoi9+5AETkHad3h7zWBOOtIkW1UXyQNkGnYyrprZ+bGm/cGxfrHJum9IyvdoLk3ZUg90y+K6sxPIewLXvTWBVMpoSFUuGToh2Eb2hEH34sxaHKgAZBnJfW6zjM4YAQ==",
+                "thinking": "",
+                "type": "thinking"
+              },
+              {
+                "citations": null,
+                "text": "I couldn't find an order with the number 4521. Could you double-check the order number? It may have a different format, such as a prefix or extra digits, or it may be in your confirmation email.\n\nIf you share the email address used for the order, I can also try looking it up that way.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "tools": [
+          {
+            "name": "search_catalog",
+            "description": "Search apparel catalog by text query and optional filters.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                },
+                "filters": {
+                  "type": "object",
+                  "properties": {
+                    "category": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "fabric": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "string"
+                    },
+                    "max_price": {
+                      "type": "number"
+                    },
+                    "available": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          },
+          {
+            "name": "get_product_details",
+            "description": "Get details for one product ID.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "product_id"
+              ]
+            }
+          },
+          {
+            "name": "check_inventory",
+            "description": "Check store inventory for a product and size.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "store_id": {
+                  "type": "string",
+                  "default": "STORE-001"
+                }
+              },
+              "required": [
+                "product_id",
+                "size"
+              ]
+            }
+          },
+          {
+            "name": "reserve_item",
+            "description": "Reserve one in-stock item for customer pickup.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "type": "string"
+                },
+                "product_id": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "store_id": {
+                  "type": "string",
+                  "default": "STORE-001"
+                }
+              },
+              "required": [
+                "customer_id",
+                "product_id",
+                "size"
+              ]
+            }
+          },
+          {
+            "name": "create_cart",
+            "description": "Create a cart for a customer with one or more items.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "type": "string"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "product_id": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "string"
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "default": 1
+                      }
+                    },
+                    "required": [
+                      "product_id",
+                      "size"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "customer_id",
+                "items"
+              ]
+            }
+          },
+          {
+            "name": "apply_coupon",
+            "description": "Apply a coupon code to an existing cart.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "cart_id": {
+                  "type": "string"
+                },
+                "coupon_code": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "cart_id",
+                "coupon_code"
+              ]
+            }
+          },
+          {
+            "name": "lookup_order",
+            "description": "Look up a customer order by order ID and email.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "email": "[REDACTED]"
+              },
+              "required": [
+                "order_id",
+                "email"
+              ]
+            }
+          },
+          {
+            "name": "get_order_tracking",
+            "description": "Get shipment status and tracking events for an order.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "order_id"
+              ]
+            }
+          },
+          {
+            "name": "check_return_policy",
+            "description": "Check whether an order item is returnable or exchangeable.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "product_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "order_id",
+                "product_id"
+              ]
+            }
+          },
+          {
+            "name": "create_exchange_request",
+            "description": "Create an exchange request for an eligible order item.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "product_id": {
+                  "type": "string"
+                },
+                "new_size": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "order_id",
+                "product_id",
+                "new_size"
+              ]
+            }
+          }
+        ]
+      },
+      "output": {
+        "id": "msg_011CgvdT1LK3QBvrnWzpZYC3",
+        "container": null,
+        "content": [
+          {
+            "signature": "CAQSjwYKEAgTGAI4AUIIdGhpbmtpbmcSDLNRtKW4j0tqNH0F5BoMaLbAyll3DU3F4AD4IjChUFRHGeTaaOAuPHSuryTmT8vdqW0eWfQz0NKx/kANN14Yk2J7ei4nFPhu9WY/+SIqrAW/SUmVZ/OrnDMNGbA1p7RyOlyJ4GrkYMv8h6PiFuPvkpUjvANlGyYy9BfV4D38MFd3EqhBiBSyzCFyfLXXhbssniV8vTnNW0mHM/iVdO//lAxhGWcEY+iQYMqCqMzgmbQEiHWkJqIdoja6S3yyVtAuP9ZmR+9cCXJ9SRpT+o6umPdB5wIL+Mo9mjW4J3nDt6tnxmgy0uQoTrmswwamdbyYfrJcVwPNYywhNZG1xFMA97GWN5V72TAi2Rd+dDfLWUC0bZDrIGtc/O82zZa7iFzpjC2LEM46Eq+jzCdioBlbdykUOc0IqFIjpDtNKpYw5TBmycyGqdG7XCYyttQnJ/5TalqYUHDgBg63LFOlUjBLhxT5Zj/W0essMj2kMAXd6DriazbFqg6S7rgQaefCyCJjy6UofjRjE7fZ5wn23HTozXSOjOvAEC5sKjDwxvCcz7PXpWI+KaMF7O9jSTWfPk1YPlVrFyReFxGWdSqbKiufR83FOisY/B15OnMxLuh75B64Os5T5NjQ3eGmUVwHNOMO+wzTckld44udZdXJ6APijJSPjvZBnE5z18dC1mLzDqxkgBI405DfcT6bUBlIgnaByya4SgX1pp3WfDLS1/CLx0deoT1T8rz0COMpjp0PZigQ6MVLTn1fuPX+bc4xB+beZhQzrjYeTPcVX5m6LxwB+PAlYzE8jMdO7w2xRx/TNL5qJme6rXbluCOq05+IQyKES88ndlV56sjyISl5ODkgEKJ17mKqGIs2NpAqFOyWZZ1qoqhuoZPgJEzO2LiByuWvBoi9+5AETkHad3h7zWBOOtIkW1UXyQNkGnYyrprZ+bGm/cGxfrHJum9IyvdoLk3ZUg90y+K6sxPIewLXvTWBVMpoSFUuGToh2Eb2hEH34sxaHKgAZBnJfW6zjM4YAQ==",
+            "thinking": "",
+            "type": "thinking"
+          },
+          {
+            "citations": null,
+            "text": "I couldn't find an order with the number 4521. Could you double-check the order number? It may have a different format, such as a prefix or extra digits, or it may be in your confirmation email.\n\nIf you share the email address used for the order, I can also try looking it up that way.",
+            "type": "text"
+          }
+        ],
+        "model": "claude-haiku-5-5",
+        "role": "assistant",
+        "stop_details": null,
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "type": "message",
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 1739,
+          "output_tokens": 125,
+          "output_tokens_details": {
+            "thinking_tokens": 44
+          },
+          "server_tool_use": null,
+          "service_tier": "standard",
+          "speed": "standard"
+        },
+        "diagnostics": null
+      },
+      "attributes": {},
+      "error": null,
+      "start_time": "2026-11-11T05:59:20.568328+00:00",
+      "end_time": "2026-11-11T05:59:21.950060+00:00",
+      "duration_ms": 1381.739,
+      "children": []
+    }
+  ]
+}

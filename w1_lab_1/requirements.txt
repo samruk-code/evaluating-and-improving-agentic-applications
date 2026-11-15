@@ -1,0 +1,13 @@
+# Local live-agent tracing walkthrough.
+-e ./apparel-shop-agent
+
+# Anthropic SDK 2 sends the key as Authorization: Bearer. The platform
+# proxy accepts X-Api-Key, which the 1.7 SDK sends. SDK 2 against that
+# proxy returns a bare 500.
+anthropic>=1.0,<1.8
+
+ipykernel
+nbclient
+nbconvert
+notebook
+pandas

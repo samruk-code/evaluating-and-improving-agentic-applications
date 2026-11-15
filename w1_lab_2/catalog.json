@@ -1,0 +1,202 @@
+[
+  {
+    "product_id": "TEE-001",
+    "name": "Classic Tee",
+    "category": "tops",
+    "description": "100% combed cotton crew-neck t-shirt. Pre-shrunk, soft hand feel.",
+    "price": 24.99,
+    "colors": ["white", "black", "navy", "heather gray"],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "in_stock": true
+  },
+  {
+    "product_id": "SHO-001",
+    "name": "Trail Runner",
+    "category": "athletic footwear",
+    "description": "Lightweight trail running shoe with rock plate and aggressive lug pattern.",
+    "price": 89.99,
+    "colors": ["black", "gray"],
+    "sizes": ["7", "8", "9", "10", "11", "12"],
+    "in_stock": true
+  },
+  {
+    "product_id": "SHO-002",
+    "name": "Court Shoe",
+    "category": "athletic footwear",
+    "description": "Low-profile court shoe with gum rubber outsole. Good for tennis and casual wear.",
+    "price": 74.99,
+    "colors": ["white", "black"],
+    "sizes": ["7", "8", "9", "10", "11", "12"],
+    "in_stock": true
+  },
+  {
+    "product_id": "SHO-003",
+    "name": "Slip-On Canvas",
+    "category": "athletic footwear",
+    "description": "Canvas slip-on shoe with elastic side panels. Easy on, easy off.",
+    "price": 55.00,
+    "colors": ["navy", "gray"],
+    "sizes": ["7", "8", "9", "10", "11"],
+    "in_stock": false
+  },
+  {
+    "product_id": "OUT-001",
+    "name": "Denim Jacket",
+    "category": "outerwear",
+    "description": "Classic trucker-style denim jacket. Button front, chest pockets.",
+    "price": 98.00,
+    "colors": ["blue", "black"],
+    "sizes": ["S", "M", "L", "XL"],
+    "in_stock": true
+  },
+  {
+    "product_id": "OUT-002",
+    "name": "Raincoat",
+    "category": "outerwear",
+    "description": "Waterproof hooded raincoat with sealed seams and cinch waist.",
+    "price": 125.00,
+    "colors": ["yellow", "navy"],
+    "sizes": ["S", "M", "L"],
+    "in_stock": true
+  },
+  {
+    "product_id": "OUT-003",
+    "name": "Fleece Pullover",
+    "category": "outerwear",
+    "description": "Quarter-zip midweight fleece pullover. Chest pocket.",
+    "price": 68.00,
+    "colors": ["heather gray", "navy", "olive"],
+    "sizes": ["S", "M", "L", "XL"],
+    "in_stock": true
+  },
+  {
+    "product_id": "TOP-002",
+    "name": "Oxford Shirt",
+    "category": "tops",
+    "description": "Button-down Oxford cloth shirt with chest pocket. Classic fit.",
+    "price": 68.00,
+    "colors": ["white", "blue", "pink"],
+    "sizes": ["S", "M", "L", "XL"],
+    "in_stock": true
+  },
+  {
+    "product_id": "TOP-003",
+    "name": "Hooded Sweatshirt",
+    "category": "tops",
+    "description": "Midweight cotton-blend hoodie with kangaroo pocket and drawcord hood.",
+    "price": 54.00,
+    "colors": ["gray", "black", "forest green"],
+    "sizes": ["S", "M", "L", "XL"],
+    "in_stock": true
+  },
+  {
+    "product_id": "TOP-004",
+    "name": "Crew Neck Sweater",
+    "category": "tops",
+    "description": "Merino wool crew-neck sweater. Machine washable on wool cycle.",
+    "price": 72.00,
+    "colors": ["cream", "charcoal", "burgundy"],
+    "sizes": ["S", "M", "L", "XL"],
+    "in_stock": true
+  },
+  {
+    "product_id": "TOP-005",
+    "name": "Flannel Shirt",
+    "category": "tops",
+    "description": "Brushed cotton flannel button-up. Two chest pockets.",
+    "price": 62.00,
+    "colors": ["red plaid", "green plaid", "blue plaid"],
+    "sizes": ["S", "M", "L", "XL"],
+    "in_stock": true
+  },
+  {
+    "product_id": "BOT-001",
+    "name": "Chino Pants",
+    "category": "bottoms",
+    "description": "Straight-fit cotton chinos with slight stretch. Unwashed, expect some shrinkage.",
+    "price": 58.00,
+    "colors": ["khaki", "navy", "olive"],
+    "sizes": ["30x30", "32x32", "34x32", "36x34"],
+    "in_stock": true
+  },
+  {
+    "product_id": "BOT-002",
+    "name": "Cargo Shorts",
+    "category": "bottoms",
+    "description": "9-inch inseam cargo shorts with side utility pockets.",
+    "price": 38.00,
+    "colors": ["khaki", "olive", "black"],
+    "sizes": ["30", "32", "34", "36"],
+    "in_stock": true
+  },
+  {
+    "product_id": "BOT-003",
+    "name": "Swim Trunks",
+    "category": "bottoms",
+    "description": "5-inch inseam quick-dry swim trunks with mesh liner.",
+    "price": 34.00,
+    "colors": ["navy", "coral", "teal"],
+    "sizes": ["S", "M", "L", "XL"],
+    "in_stock": true
+  },
+  {
+    "product_id": "ACC-001",
+    "name": "Leather Belt",
+    "category": "accessories",
+    "description": "Full-grain leather belt with brushed-nickel buckle.",
+    "price": 42.00,
+    "colors": ["brown", "black"],
+    "sizes": ["30", "32", "34", "36"],
+    "in_stock": true
+  },
+  {
+    "product_id": "ACC-002",
+    "name": "Wool Beanie",
+    "category": "accessories",
+    "description": "Cuffed merino-wool beanie. One size fits most.",
+    "price": 22.00,
+    "colors": ["black", "gray", "navy", "oatmeal"],
+    "sizes": ["one size"],
+    "in_stock": true
+  },
+  {
+    "product_id": "ACC-003",
+    "name": "Canvas Backpack",
+    "category": "accessories",
+    "description": "18L waxed canvas backpack with leather trim and laptop sleeve.",
+    "price": 78.00,
+    "colors": ["black", "olive", "navy"],
+    "sizes": ["one size"],
+    "in_stock": true
+  },
+  {
+    "product_id": "ACC-004",
+    "name": "Leather Wallet",
+    "category": "accessories",
+    "description": "Bifold leather wallet with six card slots and bill compartment.",
+    "price": 45.00,
+    "colors": ["brown", "black"],
+    "sizes": ["one size"],
+    "in_stock": true
+  },
+  {
+    "product_id": "ACC-005",
+    "name": "Cotton Socks (3-pack)",
+    "category": "accessories",
+    "description": "Ribbed crew-length cotton socks. Sold in packs of three.",
+    "price": 16.00,
+    "colors": ["white", "black"],
+    "sizes": ["M", "L"],
+    "in_stock": true
+  },
+  {
+    "product_id": "ACC-006",
+    "name": "Trouser Socks",
+    "category": "accessories",
+    "description": "Mid-calf dress socks in fine merino blend.",
+    "price": 12.00,
+    "colors": ["black", "gray", "navy"],
+    "sizes": ["M", "L"],
+    "in_stock": true
+  }
+]

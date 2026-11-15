@@ -1,0 +1,25 @@
+gradio
+# anthropic 1.x is required by claude-agent-sdk, which raises
+#   DependencyConflict: requested "anthropic >= 1.0.0" but found "anthropic 0.125.0"
+# and silently skips LLM instrumentation on anything older.
+#
+# This used to be pinned <1.0 because openinference-instrumentation-anthropic
+# 1.1.2 bound anthropic.resources.completions.Completions.create at instrument
+# time, which 1.x removed. Fixed upstream in openinference 2.0 — hence the
+# floor below. Keep BOTH bounds: 1.x of the instrumentor with 1.x of the SDK
+# brings back "AttributeError: type object 'Completions' has no attribute
+# 'create'" on every register(auto_instrument=True).
+# anthropic 1.8.0 removed anthropic._utils._transform, which openinference
+# still imports at register() time. Keep the 1.x floor (see above) and stay
+# below 1.8.
+anthropic>=1.0,<1.8
+openinference-instrumentation-anthropic>=2.0,<3
+claude-agent-sdk
+# arize-phoenix 20.20+ needs pydantic-ai-slim, which needs anthropic>=1.9,
+# so it cannot install alongside the anthropic<1.8 cap above.
+arize-phoenix==20.19.0
+arize-phoenix-otel==0.17.2
+arize-phoenix-client==3.5.0
+openinference-instrumentation-claude-agent-sdk
+jupyter
+ipykernel

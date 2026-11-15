@@ -1,0 +1,15 @@
+<!-- Task 4 — Policy evaluators: sequencing + the LLM judge -->
+Build and score identity_before_refund and policy_compliance. Be concise: write and run the script, print the summary, don't explain unless something fails.
+
+Write eval_policy_compliance.py:
+- Load trajectories.pkl with pandas.read_pickle.
+- from phoenix.evals import create_evaluator, LLM, ClassificationEvaluator, evaluate_dataframe. from openinference.instrumentation import suppress_tracing. from query_spec import QUERY_SPEC. from progress import spinner.
+- @create_evaluator(name="identity_before_refund", kind="code") def identity_before_refund(input: str, tools_called: list) -> float: spec = QUERY_SPEC.get(input); if spec is None or not spec["requires_identity_first"] return 1.0; if "process_refund" not in tools_called return 1.0 (no refund attempted, rule not engaged); if "get_customer" not in tools_called return 0.0; else return 1.0 if tools_called.index("get_customer") < tools_called.index("process_refund") else 0.0.
+- Write format_trajectory(traj): if empty return "  (no tools were called)"; else for each call (1-indexed) build lines '  <call step="i" tool="...">', '    <arguments>{json args}</arguments>', '    <result>{json result, truncated to 2000 chars}</result>', '  </call>', joined with newlines. Add df["trajectory_text"] = df["trajectory"].apply(format_trajectory).
+- Read policy_compliance_prompt.md and extract the text inside the single ``` fenced code block (verbatim, including {input}/{trajectory_text}/{output} placeholders — don't paraphrase it).
+- judge_llm = LLM(provider="anthropic", model="claude-sonnet-5-5"). policy_compliance = ClassificationEvaluator(name="policy_compliance", llm=judge_llm, prompt_template=<the extracted text>, choices={"compliant": 1.0, "non_compliant": 0.0}).
+- Inside `with suppress_tracing():` and `with spinner(f"Evaluating policy evaluators ({len(df)} rows)"):`, run results = evaluate_dataframe(dataframe=df, evaluators=[identity_before_refund, policy_compliance], hide_tqdm_bar=True). Save to policy_results.pkl.
+- Each results[f"{name}_score"] cell is a dict like {"name": "identity_before_refund", "score": 1.0, ...}, not a number; the judge's cell also has "label" and "explanation". Always read the number with c["score"] and the judge's verdict with c["label"].
+- Print results["policy_compliance_score"].apply(lambda c: c["label"]).value_counts(), and how many rows failed identity_before_refund: results["identity_before_refund_score"].apply(lambda c: c["score"] == 0.0).sum().
+- Build a viewable dataframe: input, tools_called, "identity_before_refund" = results["identity_before_refund_score"].apply(lambda c: "pass" if c["score"] >= 0.5 else "fail"), "policy_compliance" = results["policy_compliance_score"].apply(lambda c: c["label"]). Call save_view(viewable, title="Task 4 — policy evaluators", subtitle="identity_before_refund + policy_compliance", name="task4-policy") from df_view.
+- When done, print exactly: policy evaluators scored — label breakdown printed above.

@@ -1,0 +1,21 @@
+{
+  "scores": {
+    "1": {
+      "fractionalScore": 1.0,
+      "feedback": "All tests passed! \u2705 Congratulations! \ud83c\udf89"
+    },
+    "2": {
+      "fractionalScore": 1.0,
+      "feedback": "All tests passed! \u2705 Congratulations! \ud83c\udf89"
+    },
+    "3": {
+      "fractionalScore": 1.0,
+      "feedback": "All tests passed! \u2705 Congratulations! \ud83c\udf89"
+    },
+    "4": {
+      "fractionalScore": 1.0,
+      "feedback": "All tests passed! \u2705 Congratulations! \ud83c\udf89"
+    }
+  },
+  "signature": "cc98e92f65ca432e0fbfba4d664b81abdabade839f13d41e7ebf90874018fe0a"
+}

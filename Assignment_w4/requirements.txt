@@ -1,0 +1,18 @@
+# Install the local apparel agent package and its runtime dependencies.
+-e ./apparel-shop-agent
+
+# Phoenix observability server (provides the `phoenix serve` CLI), the OTel
+# tracer used in the notebook, and the auto-instrumentation for Anthropic calls.
+anthropic==0.122.0
+claude-agent-sdk==0.2.128
+openinference-instrumentation-claude-agent-sdk==0.1.8
+arize-phoenix==19.11.0
+arize-phoenix-otel==0.16.1
+openinference-instrumentation-anthropic==1.1.0
+
+# Notebook runtime for executing learner_version.ipynb.
+dlai-grader
+ipykernel
+notebook
+ipywidgets
+pandas
